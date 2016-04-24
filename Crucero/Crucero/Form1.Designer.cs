@@ -177,6 +177,7 @@
             // 
             // calCalendario
             // 
+            this.calCalendario.CustomFormat = "";
             this.calCalendario.Enabled = false;
             this.calCalendario.Location = new System.Drawing.Point(200, 211);
             this.calCalendario.Name = "calCalendario";
@@ -204,6 +205,7 @@
             // 
             // txtbxReservarCruc
             // 
+            this.txtbxReservarCruc.Enabled = false;
             this.txtbxReservarCruc.Location = new System.Drawing.Point(333, 375);
             this.txtbxReservarCruc.Name = "txtbxReservarCruc";
             this.txtbxReservarCruc.Size = new System.Drawing.Size(141, 20);
@@ -252,6 +254,7 @@
             this.txtbxNumPasajeros.Name = "txtbxNumPasajeros";
             this.txtbxNumPasajeros.Size = new System.Drawing.Size(141, 20);
             this.txtbxNumPasajeros.TabIndex = 19;
+            this.txtbxNumPasajeros.TextChanged += new System.EventHandler(this.txtbxNumPasajeros_TextChanged);
             // 
             // btnFiltrar
             // 
@@ -326,6 +329,7 @@
             this.lstbxLista.Name = "lstbxLista";
             this.lstbxLista.Size = new System.Drawing.Size(299, 199);
             this.lstbxLista.TabIndex = 28;
+            this.lstbxLista.SelectedIndexChanged += new System.EventHandler(this.lstbxLista_SelectedIndexChanged);
             // 
             // lstbxConfirmacion
             // 

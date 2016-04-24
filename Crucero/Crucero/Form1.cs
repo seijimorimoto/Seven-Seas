@@ -172,11 +172,24 @@ namespace Crucero
                     }
                 }
             }
+
+            txtbxReservarCruc.Text = "";
         }
 
         private void chkboxFecha_CheckedChanged(object sender, EventArgs e)
         {
             calCalendario.Enabled = (chkboxFecha.Checked) ? true : false;
+        }
+
+        private void txtbxNumPasajeros_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstbxLista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string itemSeleccionado = lstbxLista.SelectedItem.ToString();
+            txtbxReservarCruc.Text = (itemSeleccionado == null) ? "" : itemSeleccionado;
         }
     }
 }
