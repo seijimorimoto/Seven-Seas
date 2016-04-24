@@ -56,6 +56,7 @@
             this.lblCosto = new System.Windows.Forms.Label();
             this.lstbxLista = new System.Windows.Forms.ListBox();
             this.lstbxConfirmacion = new System.Windows.Forms.ListBox();
+            this.chkboxFecha = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBeach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
@@ -176,6 +177,7 @@
             // 
             // calCalendario
             // 
+            this.calCalendario.Enabled = false;
             this.calCalendario.Location = new System.Drawing.Point(200, 211);
             this.calCalendario.Name = "calCalendario";
             this.calCalendario.Size = new System.Drawing.Size(198, 20);
@@ -197,7 +199,7 @@
             this.cmbDestinos.FormattingEnabled = true;
             this.cmbDestinos.Location = new System.Drawing.Point(428, 209);
             this.cmbDestinos.Name = "cmbDestinos";
-            this.cmbDestinos.Size = new System.Drawing.Size(121, 21);
+            this.cmbDestinos.Size = new System.Drawing.Size(128, 21);
             this.cmbDestinos.TabIndex = 12;
             // 
             // txtbxReservarCruc
@@ -333,11 +335,22 @@
             this.lstbxConfirmacion.Size = new System.Drawing.Size(211, 199);
             this.lstbxConfirmacion.TabIndex = 29;
             // 
+            // chkboxFecha
+            // 
+            this.chkboxFecha.AutoSize = true;
+            this.chkboxFecha.Location = new System.Drawing.Point(275, 193);
+            this.chkboxFecha.Name = "chkboxFecha";
+            this.chkboxFecha.Size = new System.Drawing.Size(15, 14);
+            this.chkboxFecha.TabIndex = 30;
+            this.chkboxFecha.UseVisualStyleBackColor = true;
+            this.chkboxFecha.CheckedChanged += new System.EventHandler(this.chkboxFecha_CheckedChanged);
+            // 
             // ProyectoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 655);
+            this.Controls.Add(this.chkboxFecha);
             this.Controls.Add(this.lstbxConfirmacion);
             this.Controls.Add(this.lstbxLista);
             this.Controls.Add(this.lblCosto);
@@ -408,7 +421,7 @@
         private System.Windows.Forms.Label lblCosto;
         private System.Windows.Forms.ListBox lstbxLista;
         private System.Windows.Forms.ListBox lstbxConfirmacion;
-
+        private System.Windows.Forms.CheckBox chkboxFecha;
     }
 }
 

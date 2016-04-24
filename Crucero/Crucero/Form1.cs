@@ -93,6 +93,7 @@ namespace Crucero
                 }
 
                 listaDestinos.Sort();
+                cmbDestinos.Items.Add("-- Cualquier destino --");
                 for (int i = 0; i < numDestinos; i++)
                     cmbDestinos.Items.Add(listaDestinos[i]);
 
@@ -127,7 +128,55 @@ namespace Crucero
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            
+            if(!chkboxFecha.Checked)
+            {
+                string itemSeleccionado = cmbDestinos.SelectedItem.ToString();
+                if(itemSeleccionado != "-- Cualquier destino --")
+                {
+                    lstbxLista.Items.Clear();
+                    for(int i=0; i<numCruceros; i++)
+                    {
+                        if (listaCruceros[i].getDestino() == itemSeleccionado)
+                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". " + listaCruceros[i].getFechaSalida() + " " + listaCruceros[i].getDestino());
+                    }
+                }
+                else
+                {
+                    lstbxLista.Items.Clear();
+                    for (int i = 0; i < numCruceros; i++)
+                    {
+                        lstbxLista.Items.Add(listaCruceros[i].getId() + ". " + listaCruceros[i].getFechaSalida() + " " + listaCruceros[i].getDestino());
+                    }
+                }
+            }
+            else
+            {
+                string itemSeleccionado = cmbDestinos.SelectedItem.ToString();
+                string fechaSeleccionada = calCalendario.Value.ToString("dd-MM-yyyy");
+                if (itemSeleccionado != "-- Cualquier destino --")
+                {
+                    lstbxLista.Items.Clear();
+                    for (int i = 0; i < numCruceros; i++)
+                    {
+                        if ((listaCruceros[i].getDestino() == itemSeleccionado) && (listaCruceros[i].getFechaSalida() == fechaSeleccionada))
+                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". " + listaCruceros[i].getFechaSalida() + " " + listaCruceros[i].getDestino());
+                    }
+                }
+                else
+                {
+                    lstbxLista.Items.Clear();
+                    for (int i = 0; i < numCruceros; i++)
+                    {
+                        if (listaCruceros[i].getFechaSalida() == fechaSeleccionada)
+                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". " + listaCruceros[i].getFechaSalida() + " " + listaCruceros[i].getDestino());
+                    }
+                }
+            }
+        }
+
+        private void chkboxFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            calCalendario.Enabled = (chkboxFecha.Checked) ? true : false;
         }
     }
 }
