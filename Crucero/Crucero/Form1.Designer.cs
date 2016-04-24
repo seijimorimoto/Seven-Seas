@@ -42,7 +42,6 @@
             this.calCalendario = new System.Windows.Forms.DateTimePicker();
             this.lblDonde = new System.Windows.Forms.Label();
             this.cmbDestinos = new System.Windows.Forms.ComboBox();
-            this.txtbxLista = new System.Windows.Forms.TextBox();
             this.txtbxReservarCruc = new System.Windows.Forms.TextBox();
             this.lblReservarCrucero = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -53,9 +52,10 @@
             this.lblNumTarjeta = new System.Windows.Forms.Label();
             this.txtbxNombre = new System.Windows.Forms.TextBox();
             this.lblConfirmacion = new System.Windows.Forms.Label();
-            this.txtbxConfirmacion = new System.Windows.Forms.TextBox();
             this.lblListaCruceros = new System.Windows.Forms.Label();
             this.lblCosto = new System.Windows.Forms.Label();
+            this.lstbxLista = new System.Windows.Forms.ListBox();
+            this.lstbxConfirmacion = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBeach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
@@ -133,7 +133,7 @@
             this.btnCrucerosDisponibles.Name = "btnCrucerosDisponibles";
             this.btnCrucerosDisponibles.Size = new System.Drawing.Size(242, 31);
             this.btnCrucerosDisponibles.TabIndex = 6;
-            this.btnCrucerosDisponibles.Text = "Ver Cruceros Disponibles";
+            this.btnCrucerosDisponibles.Text = "Ver cruceros disponibles";
             this.btnCrucerosDisponibles.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCrucerosDisponibles.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnCrucerosDisponibles.UseVisualStyleBackColor = false;
@@ -193,20 +193,12 @@
             // 
             // cmbDestinos
             // 
+            this.cmbDestinos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDestinos.FormattingEnabled = true;
             this.cmbDestinos.Location = new System.Drawing.Point(428, 209);
             this.cmbDestinos.Name = "cmbDestinos";
             this.cmbDestinos.Size = new System.Drawing.Size(121, 21);
             this.cmbDestinos.TabIndex = 12;
-            // 
-            // txtbxLista
-            // 
-            this.txtbxLista.Location = new System.Drawing.Point(12, 375);
-            this.txtbxLista.Multiline = true;
-            this.txtbxLista.Name = "txtbxLista";
-            this.txtbxLista.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbxLista.Size = new System.Drawing.Size(298, 207);
-            this.txtbxLista.TabIndex = 14;
             // 
             // txtbxReservarCruc
             // 
@@ -274,6 +266,7 @@
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // lblNumTarjeta
             // 
@@ -302,15 +295,6 @@
             this.lblConfirmacion.TabIndex = 24;
             this.lblConfirmacion.Text = "Confirmación:";
             // 
-            // txtbxConfirmacion
-            // 
-            this.txtbxConfirmacion.Location = new System.Drawing.Point(498, 375);
-            this.txtbxConfirmacion.Multiline = true;
-            this.txtbxConfirmacion.Name = "txtbxConfirmacion";
-            this.txtbxConfirmacion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtbxConfirmacion.Size = new System.Drawing.Size(211, 207);
-            this.txtbxConfirmacion.TabIndex = 25;
-            // 
             // lblListaCruceros
             // 
             this.lblListaCruceros.AutoSize = true;
@@ -333,14 +317,31 @@
             this.lblCosto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblCosto.Visible = false;
             // 
+            // lstbxLista
+            // 
+            this.lstbxLista.FormattingEnabled = true;
+            this.lstbxLista.Location = new System.Drawing.Point(15, 375);
+            this.lstbxLista.Name = "lstbxLista";
+            this.lstbxLista.Size = new System.Drawing.Size(299, 199);
+            this.lstbxLista.TabIndex = 28;
+            // 
+            // lstbxConfirmacion
+            // 
+            this.lstbxConfirmacion.FormattingEnabled = true;
+            this.lstbxConfirmacion.Location = new System.Drawing.Point(497, 375);
+            this.lstbxConfirmacion.Name = "lstbxConfirmacion";
+            this.lstbxConfirmacion.Size = new System.Drawing.Size(211, 199);
+            this.lstbxConfirmacion.TabIndex = 29;
+            // 
             // ProyectoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 655);
+            this.Controls.Add(this.lstbxConfirmacion);
+            this.Controls.Add(this.lstbxLista);
             this.Controls.Add(this.lblCosto);
             this.Controls.Add(this.lblListaCruceros);
-            this.Controls.Add(this.txtbxConfirmacion);
             this.Controls.Add(this.lblConfirmacion);
             this.Controls.Add(this.lblNumTarjeta);
             this.Controls.Add(this.txtbxNombre);
@@ -351,7 +352,6 @@
             this.Controls.Add(this.txtbxNumTarjeta);
             this.Controls.Add(this.lblReservarCrucero);
             this.Controls.Add(this.txtbxReservarCruc);
-            this.Controls.Add(this.txtbxLista);
             this.Controls.Add(this.cmbDestinos);
             this.Controls.Add(this.lblDonde);
             this.Controls.Add(this.calCalendario);
@@ -394,7 +394,6 @@
         private System.Windows.Forms.DateTimePicker calCalendario;
         private System.Windows.Forms.Label lblDonde;
         private System.Windows.Forms.ComboBox cmbDestinos;
-        private System.Windows.Forms.TextBox txtbxLista;
         private System.Windows.Forms.TextBox txtbxReservarCruc;
         private System.Windows.Forms.Label lblReservarCrucero;
         private System.Windows.Forms.Label lblNombre;
@@ -405,9 +404,10 @@
         private System.Windows.Forms.Label lblNumTarjeta;
         private System.Windows.Forms.TextBox txtbxNombre;
         private System.Windows.Forms.Label lblConfirmacion;
-        private System.Windows.Forms.TextBox txtbxConfirmacion;
         private System.Windows.Forms.Label lblListaCruceros;
         private System.Windows.Forms.Label lblCosto;
+        private System.Windows.Forms.ListBox lstbxLista;
+        private System.Windows.Forms.ListBox lstbxConfirmacion;
 
     }
 }

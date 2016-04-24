@@ -16,3 +16,12 @@ C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamento
 C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Proyecto Final Crucero\Crucero\Crucero\obj\Debug\Crucero.ProyectoFinal.resources
 C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Proyecto Final Crucero\Crucero\Crucero\obj\Debug\Crucero.Properties.Resources.resources
 C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Proyecto Final Crucero\Crucero\Crucero\obj\Debug\Crucero.csproj.GenerateResource.Cache
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\bin\Debug\Crucero.exe.config
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\obj\Debug\Crucero.exe
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\obj\Debug\Crucero.pdb
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\bin\Debug\Crucero.exe
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\bin\Debug\Crucero.pdb
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\obj\Debug\Crucero.csprojResolveAssemblyReference.cache
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\obj\Debug\Crucero.ProyectoFinal.resources
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\obj\Debug\Crucero.Properties.Resources.resources
+C:\Users\Seiji\Documents\Angel\Escuela\4.-Carrera\2.-Segundo Semestre\Fundamentos de Ingeniería de Software\Seven-Seas\Crucero\Crucero\obj\Debug\Crucero.csproj.GenerateResource.Cache
