@@ -251,6 +251,7 @@
             // txtbxNumPasajeros
             // 
             this.txtbxNumPasajeros.Location = new System.Drawing.Point(333, 426);
+            this.txtbxNumPasajeros.MaxLength = 3;
             this.txtbxNumPasajeros.Name = "txtbxNumPasajeros";
             this.txtbxNumPasajeros.Size = new System.Drawing.Size(141, 20);
             this.txtbxNumPasajeros.TabIndex = 19;
@@ -314,13 +315,12 @@
             // 
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCosto.Location = new System.Drawing.Point(350, 461);
+            this.lblCosto.Location = new System.Drawing.Point(334, 459);
             this.lblCosto.Name = "lblCosto";
-            this.lblCosto.Size = new System.Drawing.Size(105, 18);
+            this.lblCosto.Size = new System.Drawing.Size(47, 18);
             this.lblCosto.TabIndex = 27;
-            this.lblCosto.Text = "COSTO TOTAL";
+            this.lblCosto.Text = "$ 0.00";
             this.lblCosto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblCosto.Visible = false;
             // 
             // lstbxLista
             // 
