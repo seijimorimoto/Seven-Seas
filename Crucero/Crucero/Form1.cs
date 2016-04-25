@@ -85,7 +85,7 @@ namespace Crucero
                     }
                     crucero.setId(numCruceros);
                     listaCruceros.Add(crucero);
-                    lstbxLista.Items.Add(crucero.getId() + ". Fecha de salida: " + crucero.getFechaSalida() + ". Destino: " + crucero.getDestino() + ". $" + crucero.getCosto());
+                    lstbxLista.Items.Add(crucero.getId() + ". Fecha de salida: " + crucero.getFechaSalida() + ". Destino: " + crucero.getDestino() + ". $" + string.Format("{0:0.00}", crucero.getCosto()) );
 
                     numCruceros++;
                     line = inputFile.ReadLine();
@@ -138,7 +138,7 @@ namespace Crucero
                     for(int i=0; i<numCruceros; i++)
                     {
                         if (listaCruceros[i].getDestino() == itemSeleccionado)
-                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + listaCruceros[i].getCosto());
+                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + string.Format("{0:0.00}", listaCruceros[i].getCosto()) );
                     }
                 }
                 else
@@ -146,7 +146,7 @@ namespace Crucero
                     lstbxLista.Items.Clear();
                     for (int i = 0; i < numCruceros; i++)
                     {
-                        lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + listaCruceros[i].getCosto());
+                        lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + string.Format("{0:0.00}", listaCruceros[i].getCosto()) );
                     }
                 }
             }
@@ -160,7 +160,7 @@ namespace Crucero
                     for (int i = 0; i < numCruceros; i++)
                     {
                         if ((listaCruceros[i].getDestino() == itemSeleccionado) && (listaCruceros[i].getFechaSalida() == fechaSeleccionada))
-                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + listaCruceros[i].getCosto());
+                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + string.Format("{0:0.00}", listaCruceros[i].getCosto()) );
                     }
                 }
                 else
@@ -169,7 +169,7 @@ namespace Crucero
                     for (int i = 0; i < numCruceros; i++)
                     {
                         if (listaCruceros[i].getFechaSalida() == fechaSeleccionada)
-                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + listaCruceros[i].getCosto());
+                            lstbxLista.Items.Add(listaCruceros[i].getId() + ". Fecha de salida: " + listaCruceros[i].getFechaSalida() + ". Destino: " + listaCruceros[i].getDestino() + ". $" + string.Format("{0:0.00}", listaCruceros[i].getCosto()) );
                     }
                 }
             }
@@ -196,7 +196,7 @@ namespace Crucero
                         int pasajeros = int.Parse(line);
                         string selectedItem = lstbxLista.SelectedItem.ToString();
                         double costoIndividual = double.Parse(selectedItem.Substring(selectedItem.IndexOf("$") + 1));
-                        lblCosto.Text = "$ " + (pasajeros * costoIndividual).ToString() + ".00";
+                        lblCosto.Text = "$ " + string.Format("{0:0.00}", pasajeros * costoIndividual);
                     }
                 }
                 else
@@ -222,7 +222,7 @@ namespace Crucero
                 string selectedItem = lstbxLista.SelectedItem.ToString();
                 double costo = double.Parse(selectedItem.Substring(selectedItem.IndexOf("$") + 1));
                 costo *= double.Parse(txtbxNumPasajeros.Text);
-                lblCosto.Text = "$ " + costo.ToString() + ".00";
+                lblCosto.Text = "$ " + string.Format("{0:0.00}",costo);
             }
         }
     }
