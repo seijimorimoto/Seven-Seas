@@ -387,6 +387,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProyectoFinal";
             this.Text = "Seven Seas - Sistema de Reservación";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Usuario_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBeach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();

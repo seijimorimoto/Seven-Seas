@@ -128,6 +128,14 @@ namespace Crucero
 
         }
 
+        private void Usuario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            for(int i=0; i<Application.OpenForms.Count; i++)
+            {
+                Application.OpenForms[i].Close();
+            }
+        }
+
         private void btnCrucerosDisponibles_Click(object sender, EventArgs e)
         {
             
