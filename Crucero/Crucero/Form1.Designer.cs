@@ -36,7 +36,6 @@
             this.picSearch = new System.Windows.Forms.PictureBox();
             this.picBorderMenu = new System.Windows.Forms.PictureBox();
             this.btnCrucerosDisponibles = new System.Windows.Forms.Button();
-            this.btnReservar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCuando = new System.Windows.Forms.Label();
             this.calCalendario = new System.Windows.Forms.DateTimePicker();
@@ -57,6 +56,7 @@
             this.lstbxLista = new System.Windows.Forms.ListBox();
             this.lstbxConfirmacion = new System.Windows.Forms.ListBox();
             this.chkboxFecha = new System.Windows.Forms.CheckBox();
+            this.btnReservar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBeach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
@@ -139,23 +139,6 @@
             this.btnCrucerosDisponibles.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btnCrucerosDisponibles.UseVisualStyleBackColor = false;
             this.btnCrucerosDisponibles.Click += new System.EventHandler(this.btnCrucerosDisponibles_Click);
-            // 
-            // btnReservar
-            // 
-            this.btnReservar.BackColor = System.Drawing.Color.Transparent;
-            this.btnReservar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReservar.BackgroundImage")));
-            this.btnReservar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnReservar.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservar.ForeColor = System.Drawing.Color.White;
-            this.btnReservar.Location = new System.Drawing.Point(344, 594);
-            this.btnReservar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReservar.Name = "btnReservar";
-            this.btnReservar.Size = new System.Drawing.Size(118, 31);
-            this.btnReservar.TabIndex = 7;
-            this.btnReservar.Text = "Reservar";
-            this.btnReservar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btnReservar.UseVisualStyleBackColor = false;
-            this.btnReservar.Click += new System.EventHandler(this.btnContacto_Click);
             // 
             // pictureBox1
             // 
@@ -325,6 +308,7 @@
             // lstbxLista
             // 
             this.lstbxLista.FormattingEnabled = true;
+            this.lstbxLista.HorizontalScrollbar = true;
             this.lstbxLista.Location = new System.Drawing.Point(15, 375);
             this.lstbxLista.Name = "lstbxLista";
             this.lstbxLista.Size = new System.Drawing.Size(299, 199);
@@ -334,6 +318,7 @@
             // lstbxConfirmacion
             // 
             this.lstbxConfirmacion.FormattingEnabled = true;
+            this.lstbxConfirmacion.HorizontalScrollbar = true;
             this.lstbxConfirmacion.Location = new System.Drawing.Point(497, 375);
             this.lstbxConfirmacion.Name = "lstbxConfirmacion";
             this.lstbxConfirmacion.Size = new System.Drawing.Size(211, 199);
@@ -349,11 +334,29 @@
             this.chkboxFecha.UseVisualStyleBackColor = true;
             this.chkboxFecha.CheckedChanged += new System.EventHandler(this.chkboxFecha_CheckedChanged);
             // 
+            // btnReservar
+            // 
+            this.btnReservar.BackColor = System.Drawing.Color.Transparent;
+            this.btnReservar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReservar.BackgroundImage")));
+            this.btnReservar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReservar.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservar.ForeColor = System.Drawing.Color.White;
+            this.btnReservar.Location = new System.Drawing.Point(345, 596);
+            this.btnReservar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReservar.Name = "btnReservar";
+            this.btnReservar.Size = new System.Drawing.Size(118, 31);
+            this.btnReservar.TabIndex = 31;
+            this.btnReservar.Text = "Reservar";
+            this.btnReservar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnReservar.UseVisualStyleBackColor = false;
+            this.btnReservar.Click += new System.EventHandler(this.btnReservar_Click);
+            // 
             // ProyectoFinal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 655);
+            this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.chkboxFecha);
             this.Controls.Add(this.lstbxConfirmacion);
             this.Controls.Add(this.lstbxLista);
@@ -374,7 +377,6 @@
             this.Controls.Add(this.calCalendario);
             this.Controls.Add(this.lblCuando);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnReservar);
             this.Controls.Add(this.btnCrucerosDisponibles);
             this.Controls.Add(this.picBorderMenu);
             this.Controls.Add(this.picSearch);
@@ -405,7 +407,6 @@
         private System.Windows.Forms.PictureBox picSearch;
         private System.Windows.Forms.PictureBox picBorderMenu;
         private System.Windows.Forms.Button btnCrucerosDisponibles;
-        private System.Windows.Forms.Button btnReservar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCuando;
         private System.Windows.Forms.DateTimePicker calCalendario;
@@ -426,6 +427,7 @@
         private System.Windows.Forms.ListBox lstbxLista;
         private System.Windows.Forms.ListBox lstbxConfirmacion;
         private System.Windows.Forms.CheckBox chkboxFecha;
+        private System.Windows.Forms.Button btnReservar;
     }
 }
 

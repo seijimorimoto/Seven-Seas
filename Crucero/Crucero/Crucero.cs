@@ -92,9 +92,19 @@ namespace Crucero
             arrCliente = new Cliente [maxPersonas];
         }
 
+        public int getMaxPersonas()
+        {
+            return this.maxPersonas;
+        }
+
         public void setClientes(int clientes)
         {
             this.clientes = clientes;
+        }
+
+        public int getClientes()
+        {
+            return this.clientes;
         }
 
         public void setId(int id)
@@ -107,41 +117,42 @@ namespace Crucero
             return this.id;
         }
 
+        public void agregarPersonas(int personas)
+        {
+            this.personas += personas;
+        }
+
         public void agregarCliente(Cliente cl)
         {
-            if(this.personas + cl.getPersonas() > this.maxPersonas)
+            bool encontrado = false;
+            int indice = 0;
+            for(int i=0; i<this.clientes && !encontrado; i++)
             {
-                //AlertBox con mensaje de EXCEDER NUMERO DE PERSONAS
+                if((arrCliente[i].getNombre() == cl.getNombre()) && (arrCliente[i].getId() == cl.getId()))
+                {
+                    encontrado = true;
+                    indice = i;
+                }
+            }
+
+            if(encontrado)
+            {
+                int num = cl.getPersonas();
+                arrCliente[indice].agregarPersonas(num);
             }
 
             else
             {
-                bool encontrado = false;
-                int indice = 0;
-                for(int i=0; i<this.clientes && !encontrado; i++)
-                {
-                    if((arrCliente[i].getNombre() == cl.getNombre()) && (arrCliente[i].getId() == cl.getId()))
-                    {
-                        encontrado = true;
-                        indice = i;
-                    }
-                }
-
-                if(encontrado)
-                {
-                    int num = cl.getPersonas();
-                    arrCliente[indice].agregarPersonas(num);
-                }
-
-                else
-                {
-                    string nombre = cl.getNombre();
-                    string id = cl.getId();
-                    int personas = cl.getPersonas();
-                    arrCliente[this.clientes] = new Cliente(nombre, id, personas);
-                    this.clientes++;
-                }
+                arrCliente[this.clientes] = cl;
+                this.clientes++;
             }
+
+            /* Probar que se actualiza el arreglo de clientes
+            for(int i=0; i<this.clientes; i++)
+            {
+                Console.WriteLine(arrCliente[i].getNombre() + " " + arrCliente[i].getId() + " " + arrCliente[i].getPersonas());
+            }
+            */
         }
     }
 }

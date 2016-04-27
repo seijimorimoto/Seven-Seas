@@ -6459,7 +6459,7 @@
         JIEgCQRJIEgCQRIIkkCQBIIksHrzAW4P03Mrh1uYAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnReservar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnFiltrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQwAAABbCAIAAAAJEiw/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAAPhJREFUeF7t0wEJACAQADEbmsAU3x9s8FdgsAo79w2wkASCJBAkgSAJBEkgSAJB
@@ -6469,7 +6469,7 @@
         JIEgCQRJIEgCQRIIkkCQBIIksHrzAW4P03Mrh1uYAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnFiltrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnReservar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAQwAAABbCAIAAAAJEiw/AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAAPhJREFUeF7t0wEJACAQADEbmsAU3x9s8FdgsAo79w2wkASCJBAkgSAJBEkgSAJB

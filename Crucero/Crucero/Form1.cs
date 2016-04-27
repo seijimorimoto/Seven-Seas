@@ -121,11 +121,6 @@ namespace Crucero
             
         }
 
-        private void btnContacto_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             lblCosto.Text = "$ 0.00";
@@ -224,6 +219,102 @@ namespace Crucero
                 costo *= double.Parse(txtbxNumPasajeros.Text);
                 lblCosto.Text = "$ " + string.Format("{0:0.00}",costo);
             }
+        }
+
+        private void btnReservar_Click(object sender, EventArgs e)
+        {
+            bool canProceed = true;
+
+            if(string.IsNullOrWhiteSpace(txtbxReservarCruc.Text))
+            {
+                lblReservarCrucero.ForeColor = System.Drawing.Color.Red;
+                canProceed = false;
+            }
+            else
+                lblReservarCrucero.ForeColor = System.Drawing.Color.Black;
+
+
+            if (string.IsNullOrWhiteSpace(txtbxNumPasajeros.Text))
+            {
+                lblNumPasajeros.ForeColor = System.Drawing.Color.Red;
+                canProceed = false;
+            }
+            else
+                lblNumPasajeros.ForeColor = System.Drawing.Color.Black;
+
+
+            if (string.IsNullOrWhiteSpace(txtbxNombre.Text))
+            {
+                lblNombre.ForeColor = System.Drawing.Color.Red;
+                canProceed = false;
+            }
+            else
+                lblNombre.ForeColor = System.Drawing.Color.Black;
+
+
+            if (string.IsNullOrWhiteSpace(txtbxNumTarjeta.Text))
+            {
+                lblNumTarjeta.ForeColor = System.Drawing.Color.Red;
+                canProceed = false;
+            }
+            else
+                lblNumTarjeta.ForeColor = System.Drawing.Color.Black;
+
+            if (!canProceed)
+            {
+                MessageBox.Show("Por favor, complete las secciones faltantes.");
+            }
+
+            else
+            {
+                int numPasajeros = int.Parse(txtbxNumPasajeros.Text);
+                string crucero = txtbxReservarCruc.Text;
+                int indiceTemporal = crucero.IndexOf('.');
+                int idCrucero = int.Parse(crucero.Substring(0, indiceTemporal));
+
+                if (numPasajeros + listaCruceros[idCrucero].getPersonas() > listaCruceros[idCrucero].getMaxPersonas())
+                {
+                    int cupoDisponible = listaCruceros[idCrucero].getMaxPersonas() - listaCruceros[idCrucero].getPersonas();
+                    if (cupoDisponible == 0)
+                        MessageBox.Show("Lo sentimos, pero este crucero ya está lleno.");
+                    else
+                        MessageBox.Show("Es imposible realizar la reservación. Sólo hay espacio para " + cupoDisponible + " personas más.");
+                }
+
+                else
+                {
+                    string nombreCliente = txtbxNombre.Text;
+                    string idCliente = txtbxNumTarjeta.Text;
+                    Cliente cl = new Cliente(nombreCliente, idCliente, numPasajeros);
+
+                    listaCruceros[idCrucero].agregarPersonas(numPasajeros);
+                    listaCruceros[idCrucero].agregarCliente(cl);
+
+                    updateCrucerosFile();
+
+                    MessageBox.Show("Su reservación ha sido exitosa.");
+                    lstbxConfirmacion.Items.Add("Huésped principal: " + nombreCliente + ". Número de pasajeros: " + numPasajeros + ". Tarjeta: " + idCliente);
+                }
+            }
+        }
+
+
+        private void updateCrucerosFile()
+        {
+            StreamWriter outputFile = File.CreateText(@"InfoCruceros.txt");
+            for(int i=0; i<numCruceros; i++)
+            {
+                outputFile.Write(string.Format("{0:0.00}", listaCruceros[i].getCosto()) + "/");
+                outputFile.Write(listaCruceros[i].getFechaSalida() + "/");
+                outputFile.Write(listaCruceros[i].getFechaRegreso() + "/");
+                outputFile.Write(listaCruceros[i].getPuerto() + "/");
+                outputFile.Write(listaCruceros[i].getDestino() + "/");
+                outputFile.Write(listaCruceros[i].getMaxPersonas() + "/");
+                outputFile.Write(listaCruceros[i].getPersonas() + "/");
+                outputFile.Write(listaCruceros[i].getClientes() + "/");
+                outputFile.WriteLine();
+            }
+            outputFile.Close();
         }
     }
 }
