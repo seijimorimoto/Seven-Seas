@@ -38,7 +38,7 @@ namespace Crucero
             try
             {
                 string line = inputFile.ReadLine();
-                while(line != null)
+                while(line != null && line != "")
                 {
                     int indice;
                     string temp;
@@ -80,6 +80,18 @@ namespace Crucero
                                 break;
                             case 7:
                                 crucero.setClientes(int.Parse(temp));
+                                string directory = Directory.GetCurrentDirectory();
+                                directory += "\\Archivos-cruceros\\Crucero_" + numCruceros + "_" + crucero.getPuerto() + "_" + crucero.getDestino() + ".txt";
+                                StreamWriter outputFileClientes;
+                                if (crucero.getClientes() == 0)
+                                {
+                                    outputFileClientes = File.CreateText(directory);
+                                    outputFileClientes.Close();
+                                }
+                                else
+                                {
+                                    crucero.importarClientes(directory);
+                                }
                                 break;
                         }
                     }
@@ -202,22 +214,30 @@ namespace Crucero
             
             catch(FormatException)
             {
-                MessageBox.Show("Por favor, introduzca sólo caracteres numéricos.");
+                MessageBox.Show("Por favor, introduzca sólo caracteres numéricos.", "Error en entrada de datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtbxNumPasajeros.Clear();
             }
         }
 
         private void lstbxLista_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string itemSeleccionado = lstbxLista.SelectedItem.ToString();
-            txtbxReservarCruc.Text = (itemSeleccionado == null) ? "" : itemSeleccionado;
-
-            if(txtbxNumPasajeros.Text != "")
+            try
             {
-                string selectedItem = lstbxLista.SelectedItem.ToString();
-                double costo = double.Parse(selectedItem.Substring(selectedItem.IndexOf("$") + 1));
-                costo *= double.Parse(txtbxNumPasajeros.Text);
-                lblCosto.Text = "$ " + string.Format("{0:0.00}",costo);
+                string itemSeleccionado = lstbxLista.SelectedItem.ToString();
+                txtbxReservarCruc.Text = (itemSeleccionado == null) ? "" : itemSeleccionado;
+
+                if (txtbxNumPasajeros.Text != "")
+                {
+                    string selectedItem = lstbxLista.SelectedItem.ToString();
+                    double costo = double.Parse(selectedItem.Substring(selectedItem.IndexOf("$") + 1));
+                    costo *= double.Parse(txtbxNumPasajeros.Text);
+                    lblCosto.Text = "$ " + string.Format("{0:0.00}", costo);
+                }
+            }
+
+            catch(FormatException)
+            {
+                txtbxNumPasajeros.Clear();
             }
         }
 
@@ -262,7 +282,7 @@ namespace Crucero
 
             if (!canProceed)
             {
-                MessageBox.Show("Por favor, complete las secciones faltantes.");
+                MessageBox.Show("Por favor, complete las secciones faltantes.", "Registro incompleto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             else
@@ -276,24 +296,34 @@ namespace Crucero
                 {
                     int cupoDisponible = listaCruceros[idCrucero].getMaxPersonas() - listaCruceros[idCrucero].getPersonas();
                     if (cupoDisponible == 0)
-                        MessageBox.Show("Lo sentimos, pero este crucero ya está lleno.");
+                        MessageBox.Show("Lo sentimos, pero este crucero ya está lleno.", "Cupo lleno", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show("Es imposible realizar la reservación. Sólo hay espacio para " + cupoDisponible + " personas más.");
+                        MessageBox.Show("Es imposible realizar la reservación. Sólo hay espacio para " + cupoDisponible + " personas más.", "Espacio insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 else
                 {
-                    string nombreCliente = txtbxNombre.Text;
-                    string idCliente = txtbxNumTarjeta.Text;
-                    Cliente cl = new Cliente(nombreCliente, idCliente, numPasajeros);
+                    DialogResult continuar = MessageBox.Show("¿Está seguro de la reservación?", "Mensaje de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                    listaCruceros[idCrucero].agregarPersonas(numPasajeros);
-                    listaCruceros[idCrucero].agregarCliente(cl);
+                    if(continuar == DialogResult.Yes)
+                    {
+                        string nombreCliente = txtbxNombre.Text;
+                        string idCliente = txtbxNumTarjeta.Text;
+                        Cliente cl = new Cliente(nombreCliente, idCliente, numPasajeros);
 
-                    updateCrucerosFile();
+                        listaCruceros[idCrucero].agregarPersonas(numPasajeros);
+                        listaCruceros[idCrucero].agregarCliente(cl);
 
-                    MessageBox.Show("Su reservación ha sido exitosa.");
-                    lstbxConfirmacion.Items.Add("Huésped principal: " + nombreCliente + ". Número de pasajeros: " + numPasajeros + ". Tarjeta: " + idCliente);
+                        updateCrucerosFile();
+
+                        string directory = Directory.GetCurrentDirectory();
+                        directory += "\\Archivos-cruceros\\Crucero_" + idCrucero + "_" + listaCruceros[idCrucero].getPuerto() + "_" + listaCruceros[idCrucero].getDestino() + ".txt";
+                        listaCruceros[idCrucero].exportarClientes(directory);
+
+                        MessageBox.Show("Su reservación ha sido exitosa.", "Operación exitosa", MessageBoxButtons.OK ,MessageBoxIcon.Information);
+                        lstbxConfirmacion.Items.Add("Huésped principal: " + nombreCliente + ". Número de pasajeros: " + numPasajeros + ". Tarjeta: " + idCliente);
+                    }
+
                 }
             }
         }

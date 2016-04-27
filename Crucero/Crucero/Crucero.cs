@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Crucero
 {
@@ -121,6 +122,54 @@ namespace Crucero
         {
             this.personas += personas;
         }
+
+        public void importarClientes(string directory)
+        {
+            StreamReader inputFile = File.OpenText(directory);
+            string line, nombre, numeroTarjeta;
+            int pasajeros, indice;
+
+            line = inputFile.ReadLine();
+            for(int i=0; i<this.clientes; i++)
+            {
+                indice = line.IndexOf("/");
+                nombre = line.Substring(0, indice);
+                line = line.Substring(indice + 1);
+                indice = line.IndexOf("/");
+                numeroTarjeta = line.Substring(0, indice);
+                line = line.Substring(indice + 1);
+                indice = line.IndexOf("/");
+                pasajeros = int.Parse(line.Substring(0, indice));
+
+                arrCliente[i] = new Cliente(nombre, numeroTarjeta, pasajeros);
+
+                line = inputFile.ReadLine();
+            }
+
+            inputFile.Close();
+
+            /* Probar que se guardan todos los clientes de los archivos de texto en la matriz
+            for(int i=0; i<this.clientes; i++)
+            {
+                arrCliente[i].muestra();
+            }
+            */
+        }
+
+        
+        public void exportarClientes(string directory)
+        {
+            StreamWriter outputFile = File.CreateText(directory);
+            for(int i=0; i<this.clientes; i++)
+            {
+                outputFile.Write(arrCliente[i].getNombre() + "/");
+                outputFile.Write(arrCliente[i].getId() + "/");
+                outputFile.Write(arrCliente[i].getPersonas() + "/");
+                outputFile.WriteLine();
+            }
+            outputFile.Close();
+        }
+
 
         public void agregarCliente(Cliente cl)
         {

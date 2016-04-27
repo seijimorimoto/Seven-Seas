@@ -19,6 +19,13 @@ namespace Crucero
             this.personas = personas;
         }
 
+        /*
+        public void muestra()
+        {
+            Console.WriteLine(nombre + " " + id + " " + personas);
+        }
+        */
+
         public string getNombre()
         {
             return this.nombre;
