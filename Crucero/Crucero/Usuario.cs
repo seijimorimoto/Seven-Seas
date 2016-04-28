@@ -317,6 +317,7 @@ namespace Crucero
                     {
                         string nombreCliente = txtbxNombre.Text;
                         string idCliente = txtbxNumTarjeta.Text;
+                        string destino = listaCruceros[idCrucero].getDestino();
                         Cliente cl = new Cliente(nombreCliente, idCliente, numPasajeros);
 
                         listaCruceros[idCrucero].agregarPersonas(numPasajeros);
@@ -329,7 +330,7 @@ namespace Crucero
                         listaCruceros[idCrucero].exportarClientes(directory);
 
                         MessageBox.Show("Su reservación ha sido exitosa.", "Operación exitosa", MessageBoxButtons.OK ,MessageBoxIcon.Information);
-                        lstbxConfirmacion.Items.Add("Huésped principal: " + nombreCliente + ". Número de pasajeros: " + numPasajeros + ". Tarjeta: " + idCliente);
+                        lstbxConfirmacion.Items.Add("Huésped principal: " + nombreCliente + ". Número de pasajeros: " + numPasajeros + ". Tarjeta: " + idCliente + ". Destino: " + destino);
                     }
 
                 }
