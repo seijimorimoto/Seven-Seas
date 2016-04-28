@@ -16,7 +16,7 @@ namespace Crucero
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProyectoFinal());
+            Application.Run(new MainMenu());
         }
     }
 }
